@@ -35,9 +35,6 @@ export default function App() {
       setAudio(new Audio(url))
   }
 
-  console.log(results)
-
-
   const refresh = () => window.location.reload(true)
 
   if(results===undefined) return (
