@@ -24,7 +24,6 @@
   margin-right: .5rem;
   font-size: xx-large;
   color: var(--text-secondary);
-  /* opacity: .5; */
 }
 
 .input-container{
@@ -156,6 +155,7 @@ ul > li::marker {
 .word-source a{
   color: #000000de;
   font-size: small;
+  text-decoration: underline;
 }
 
 .footer{

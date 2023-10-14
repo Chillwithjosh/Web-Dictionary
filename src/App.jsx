@@ -11,7 +11,6 @@ import { BsPlayFill } from "react-icons/bs";
 export default function App() {
   const[inputData, setInputData] = React.useState('')
   const[results, setResult] = React.useState(null)
-  const[data, setData] = React.useState('')
   const[audio, setAudio] = React.useState(null)
 
   const display = (event) => {
@@ -19,11 +18,9 @@ export default function App() {
       searchWord()
     }
   }
-  const click = (event) => {
+  const click = () => {
     searchWord()
   }
-
-  // console.log(results.word)
 
   const searchWord = async () =>{
       const response = await fetch (`https://api.dictionaryapi.dev/api/v2/entries/en/${inputData}`)
@@ -44,20 +41,6 @@ export default function App() {
     </div>
   )
 
-  // if(loading) return <CircularProgress />
-
-  
-
-  // const heading = () => {
-  //   // const audio = results.phonetics.find(phone => phone.audio !== '').audio
-  //   return{
-  //     // audioUrl: audio,
-  //     word: results.word,
-  //     phonetic: results.phonetic
-  //   }
-  // }
-
-
   return (
     <div className="app">
       <div className="container">
@@ -74,19 +57,8 @@ export default function App() {
           onKeyUp={event => display(event)}
           />
           </div>
-            {/* {inputData  !== word[0].word === ''  ? error() : ''} */}
-            {/* {error  ?  handleError() : ''} */}
-            {/* {error} */}
-            {/* {handleError()} */}
-            {/* {errorWord} */}
-          {/* <Error childToParent={childToParent}/> */}
-          {/* {exist ?    errorWord : ''} */}
-          {/* results.phonetics[0].audio */}
-
           {results ?  (
             <>
-            {/* <Heading {...heading()}/> */}
-            {/* <Heading {...results} /> */}
             <div className="word">
             <h1>{results.word}<br/><p className='sound'>{results.phonetic}</p></h1>
             {results.phonetics[0].audio  ? <button onClick={() => audio.play()} className='play-button'><BsPlayFill className='play' /></button> : '' }
