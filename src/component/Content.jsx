@@ -13,14 +13,14 @@ export default function Content({partOfSpeech, definitions, synonyms, antonyms})
           <ul className='word-definition'>
 
             {
-                definitions.map(def =>(
-                    <>
-                    <li>{def.definition}</li>
+                definitions.map((def, index) =>(
+                    <div key={index}>
+                    <li key={index}>{def.definition}</li>
                     {
                         def.example ? <p className='example'>"{def.example}"</p> : null
                     }
                     
-                    </>
+                    </div>
                 ))
             }
 
@@ -28,8 +28,8 @@ export default function Content({partOfSpeech, definitions, synonyms, antonyms})
           {
             synonyms[0] === undefined ?   null : <p className='gray margin'>
                 Synonyms:{" "}  
-                {synonyms.map((synonym) => (
-                    <span className='sy-word'>{synonym}</span>
+                {synonyms.map((synonym, index) => (
+                    <span key={index} className='sy-word'>{synonym}</span>
                 ))}
                 
                 </p> 
@@ -38,8 +38,8 @@ export default function Content({partOfSpeech, definitions, synonyms, antonyms})
           {
             antonyms[0] === undefined ?   null : <p className='gray margin'>
                 Antonyms:{" "}  
-                {antonyms.map((antonym) => (
-                    <span className='sy-word'>{antonym}</span>
+                {antonyms.map((antonym, index) => (
+                    <span key={index} className='sy-word'>{antonym}</span>
                 ))}
                 
                 </p> 
